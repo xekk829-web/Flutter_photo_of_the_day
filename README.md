@@ -1,17 +1,57 @@
-# photo_of_the_day_salikov
+# Фото дня
 
-A new Flutter project.
+Проект с использованием асинхронности, выдающее случаное фото собаки или пейзажа при нажатии на кнопку.
 
-## Getting Started
+> Информация об авторе:
+>
+> - **ФИО**: Саликов Аскар Рустамович
+> - **Группа**: ИСП-241
 
-This project is a starting point for a Flutter application.
+## Стек
 
-A few resources to get you started if this is your first Flutter project:
+- **Flutter** 3.47.1
+- **Dart** 3.13.1
+- **Платформа:** Web (_Chrome_)
+- **Пакет**: http
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Скриншот
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Скриншот](/img/step2_Salikov.png)
+
+## Как запустить
+
+```bash
+git clone https://github.com/xekk829-web/Flutter_photo_of_the_day
+cd Flutter_photo_of_the_day
+flutter pub get
+flutter run -d chrome
+```
+
+## Что изучили:
+
+1. Асинхронность на Dart (`async/await`)
+2. Обработка ошибок (`try/catch`)
+3. Работа с http-запросами и пакетом `http`.
+4. Возвращаемое в будущем значение (`Future<T>`).
+
+## Ответы на вопросы
+
+1. > Что такое Future<T>? Чем отличается от обычного возвращаемого значения?
+
+`Future<T>` - это объект, который возвращает значение типа `T` в будущем, не влияя на работу остальной программы, в отличии от обычного возращаемого значения, который останавливает выполнение всей программы, пока сам не вернёт значение.
+
+2. > Что делает await? Блокирует ли он весь поток выполнения?
+
+`await` останавливает функцию, пока не завершится `Future`, не блокируя поток выполнения.
+
+3. > Зачем setState() вызывается дважды в \_fetchPhoto()?
+
+`setState()` вызывается в первый раз, чтоб вывести на экран анимацию загрузки изображения, а второй - чтоб вывести само изображение.
+
+4. > Почему кнопке передаётся \_fetchPhoto без скобок, а не \_fetchPhoto()?
+
+`_fetchPhoto` передаётся как ссылка на функцию, чтобы кнопка могла вызвать её именно в момент нажатия.
+
+5. > Чем Image.network() отличается от Image.asset()?
+
+`Image.network()` выводит изображения по URL-ссылке из интернета, `Image.asset()` выводит локальные изображение из директории проекта.
